@@ -4,7 +4,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     hikari: # springboot 2.0 整合了hikari ,据说这是目前性能最好的java数据库连接池
       username: root
-      password: Ql960223
+      password: root
   jpa:
     database: mysql
     show-sql: true
