@@ -5,7 +5,7 @@
 
 课程目录：
 
-（1）spingboot(一)：helloworld
+（1）springboot(一)：helloworld
 
 （2）springboot(二)：springboot内使用jsp
 
