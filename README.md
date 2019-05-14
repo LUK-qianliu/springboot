@@ -7,7 +7,7 @@
 
 （1）spingboot(一)：helloworld
 
-（2）springboot(二):springboot内使用jsp
+（2）springboot(二)：springboot内使用jsp
 
 （3）springboot(三)：springboot操作Spring Data JPA
 
