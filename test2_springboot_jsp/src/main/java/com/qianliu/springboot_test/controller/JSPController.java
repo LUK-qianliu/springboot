@@ -8,8 +8,8 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping
 @RestController
 public class JSPController {
-    @RequestMapping(value = "/jsp",method = RequestMethod.GET)
-    public ModelAndView getJSP(){
+    @RequestMapping(value = "/jsp", method = RequestMethod.GET)
+    public ModelAndView getJSP() {
         return new ModelAndView("index");
     }
 }

@@ -26,9 +26,9 @@ public class UserEntity implements Serializable {
     @Column(name = "address")
     private String address;
 
-    public UserEntity(String name,int age,String address){
+    public UserEntity(String name, int age, String address) {
         this.name = name;
         this.age = age;
-        this.address =address;
+        this.address = address;
     }
 }

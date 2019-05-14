@@ -22,8 +22,8 @@ public class UserController {
      * @return List<UserEntity> 返回UserEntity实体的list<UserEntity>
      * @Discription:查询所有数据
      */
-    @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public List<UserEntity> getAll(){
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public List<UserEntity> getAll() {
         System.out.println("list");
         return userJPA.findAll();
     }
@@ -34,20 +34,19 @@ public class UserController {
      * @return UserEntity 返回这个UserEntity实体
      * @Discription:更新、添加UserEntity实体
      */
-    @RequestMapping(value = "/save",method = RequestMethod.GET)
-    public UserEntity save()
-    {
-        UserEntity entity = new UserEntity("user1",22,"123@qq.com");
+    @RequestMapping(value = "/save", method = RequestMethod.GET)
+    public UserEntity save() {
+        UserEntity entity = new UserEntity("user1", 22, "123@qq.com");
         return userJPA.save(entity);
     }
 
     /**
      * 通过id删除用户方法
+     *
      * @return
      */
-    @RequestMapping(value = "/delete/{id}",method = RequestMethod.GET)
-    public List<UserEntity> delete(@PathVariable Long id)
-    {
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public List<UserEntity> delete(@PathVariable Long id) {
         userJPA.deleteById(id);
         return userJPA.findAll();
     }
