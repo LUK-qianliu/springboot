@@ -5,8 +5,12 @@
 
 课程目录：
 
-（1）spingboot(一)：helloworld
+（1）springboot(一)：helloworld
 
-（2）springboot(二):springboot内使用jsp
+（2）springboot(二)：springboot内使用jsp
 
 （3）springboot(三)：springboot操作Spring Data JPA
+
+（4）springboot(四)：springboot使用Druid数据库连接池
+
+（5）springboot(五)：springboot使用thymeleaf模板实现增删改查
