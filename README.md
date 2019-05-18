@@ -16,3 +16,5 @@
 （5）springboot(五)：springboot使用thymeleaf模板实现增删改查
 
 （6）springboot(六)：springboot使用过滤器、拦截器
+
+（7）springboot(七)：springboot使用监听器、发送邮件
