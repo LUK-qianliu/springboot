@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hello World</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          th:href="@{https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css}"/>
+</head>
+<style type="text/css">
+    .full-screen {
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .fixed-page {
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto
+    }
+
+    .jumbotron {
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+        background-color: #e9ecef;
+        border-radius: .3rem
+    }
+
+    .jumbotron-fluid {
+        padding-right: 0;
+        padding-left: 0;
+        border-radius: 0
+    }
+
+</style>
+<body class="fixed-page">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff"
+       style="font-family:'Microsoft YaHei';">
+    <div class="jumbotron jumbotron-fluid full-screen">
+        <div class="container  full-screen">
+            <h3>
+                Hi,
+                尊敬的<span th:text="${username}"/>开发者，您好！
+            </h3>
+            <p>
+                方法：<code style="color: #d57e13;"><span th:text="${methodName}">methodName</span></code>实现完成！<br>
+                返回信息是：<span th:text="${resultUser.name}"/>注册成功！<br>
+                完成的时间是：<span th:text="${occurredTime}"/><br>
+            </p>
+        </div>
+    </div>
+</table>
+</body>
+</html>

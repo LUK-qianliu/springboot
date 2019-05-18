@@ -1,0 +1,20 @@
+# 普通QQ邮箱
+spring:
+  mail:
+    host: smtp.qq.com
+    username: xxx@qq.com # 邮箱账号
+    password: xxx # 授权码（下面将会告诉你怎么申请）
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+mail:
+  fromMail:
+    addr: xxx@qq.com
+  receptionMail:
+    addr: xxx@qq.com
+
+
