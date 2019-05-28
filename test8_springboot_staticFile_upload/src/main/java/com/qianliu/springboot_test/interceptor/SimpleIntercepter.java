@@ -1,0 +1,46 @@
+package com.qianliu.springboot_test.interceptor;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@Component //@Component标签相当于配置文件中的<bean id="" class=""/>，以后可以直接放入到@Configuration标注的类中
+public class SimpleIntercepter implements HandlerInterceptor {
+    //获取日志
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    /*
+     * 进入controller层之前拦截请求
+     */
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        //含有"/img/"的链接进行拦截
+        if(request.getRequestURI().startsWith("/img/")){
+            logger.warn("url访问'/img/'被拦截........");
+            return false;
+        }
+
+        return true;
+    }
+
+    /*
+     * 处理请求完成后视图渲染之前的处理操作
+     */
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        logger.info("postHandle..................");
+    }
+
+    /*
+     * 视图渲染之后的操作
+     */
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        logger.info("afterCompletion...............");
+    }
+}

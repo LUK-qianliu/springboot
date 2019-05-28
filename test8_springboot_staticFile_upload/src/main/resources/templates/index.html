@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--js实现增新一个butten-->
+<script>
+    function AddButton() {
+
+        var myInput =document.getElementById("fileForm");
+        //增加文字
+        var a = document.createElement("a");
+        a.innerHTML = "文件：";
+        myInput.appendChild(a);
+
+        //创建一个input标签
+        var bt = document.createElement("input");           //createElement生成button对象
+        bt.type = "file";
+        bt.name = "file";
+        myInput.appendChild(bt); //bt加入到myInput标签下
+
+        //创建一个br
+        var br = document.createElement("br");
+        myInput.appendChild(br);
+    }
+</script>
+<body>
+
+    <form action="/uploads" method="post" enctype="multipart/form-data" id="fileForm">
+        多个文件上传：<input type="button" onclick="AddButton()" value="增加文件">
+        <input type="submit" value="上传"/> <br/>
+        文件：<input type="file" name="file"/><br/>
+    </form>
+</body>
+</html>
