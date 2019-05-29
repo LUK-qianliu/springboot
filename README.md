@@ -18,3 +18,7 @@
 （6）springboot(六)：springboot使用过滤器、拦截器
 
 （7）springboot(七)：springboot使用监听器、发送邮件
+
+（8）springboot(八)：springboot文件上传、静态资源映射
+
+（9）springboot(九)：springboot全局异常处理和validator
