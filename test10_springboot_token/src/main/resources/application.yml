@@ -1,0 +1,12 @@
+spring:
+  #数据库
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+
+  # springdata jpa
+  jpa:
+    database: mysql
+    show-sql: true
