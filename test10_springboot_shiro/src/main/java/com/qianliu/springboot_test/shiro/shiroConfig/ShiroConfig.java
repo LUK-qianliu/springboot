@@ -15,7 +15,6 @@ import org.springframework.context.annotation.DependsOn;
 
 import javax.servlet.Filter;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 
@@ -41,6 +40,11 @@ public class ShiroConfig {
         return manager;
     }
 
+    /**
+     * 配置过滤器
+     * @param securityManager 权限管理
+     * @return
+     */
     @Bean("shiroFilter")
     public ShiroFilterFactoryBean factory(DefaultWebSecurityManager securityManager) {
         ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
@@ -61,6 +65,12 @@ public class ShiroConfig {
         // 所有请求通过我们自己的JWT Filter
         filterRuleMap.put("/**", "jwt");
         // 访问401和404页面不通过我们的Filter
+        //1.多个过滤器  AnonymousFilter  匿名过滤器   简称anon
+        //2.FormAuthenticationFilter  认证过滤器     简称authc
+
+        //此处的用意： 因为jwt过滤器会跳转到"/401"，所以需要声明一下，为anon匿名过滤器，
+        // 所有“/401”都走anon过滤器而不走jwt过滤器，否则jwt跳到jwt，会形成一个递归
+
         filterRuleMap.put("/401", "anon");
         factoryBean.setFilterChainDefinitionMap(filterRuleMap);
         return factoryBean;

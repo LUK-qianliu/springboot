@@ -42,12 +42,13 @@ public class MyRealm extends AuthorizingRealm {
     }
 
     /**
-     * 只有当需要检测用户权限的时候才会调用此方法，例如checkRole,checkPermission之类的
+     * 只有当需要检测用户权限的时候才会调用此方法，例如checkRole,checkPermission和@RequiresPermissions标签之类的
      *
      * 利用 token 中获得的 username，分别从数据库查到该用户所拥有的角色，权限，存入 SimpleAuthorizationInfo 中
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+        System.out.println("doGetAuthorizationInfo principals");
         String username = JWTUtil.getUsername(principals.toString()); //将token中的内容拿出来
         User3 user = userService.getUserByUserName(username); //从数据库中更具username拿出user
 
@@ -60,10 +61,11 @@ public class MyRealm extends AuthorizingRealm {
     }
 
     /**
-     * 默认使用此方法进行用户名正确与否验证，错误抛出异常即可。
+     * 默认使用此方法进行用户名正确与否验证，所有拦截器拦截下来的访问都会经过该方法，错误抛出异常即可。
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken auth) throws AuthenticationException {
+        System.out.println("doGetAuthenticationInfo AuthenticationToken");
         String token = (String) auth.getCredentials();
         // 解密获得username，用于和数据库进行对比
         String username = JWTUtil.getUsername(token);

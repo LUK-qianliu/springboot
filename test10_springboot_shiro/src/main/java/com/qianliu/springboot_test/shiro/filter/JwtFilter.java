@@ -60,6 +60,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
                 response401(request, response);
             }
         }
+
         //如果请求头不存在 Token，则可能是执行登陆操作或者是游客状态访问，无需检查 token，直接返回 true
         return true;
     }
@@ -78,16 +79,19 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
 
 
     /**
-     *
+     * subject.isAuthenticated()和带有@RequiresAuthentication标签的方法会触发此方法，进行验证是否登陆
      */
     @Override
     protected boolean executeLogin(ServletRequest request, ServletResponse response) throws Exception {
+        System.out.println("executeLogin");
+
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String authorization = httpServletRequest.getHeader("Authorization");
 
         JwtToken token = new JwtToken(authorization);
         // 提交给realm进行登入，如果错误他会抛出异常并被捕获
         getSubject(request, response).login(token);   //这一步就是提交给了realm进行处理
+
         // 如果没有抛出异常则代表登入成功，返回true
         //  如果在 token 校验的过程中出现错误，如 token 校验失败，那么我会将该请求视为认证不通过，则重定向到 /unauthorized/**
         return true;
